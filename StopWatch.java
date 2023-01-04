@@ -1,14 +1,18 @@
 import java.awt.*;
+import java.awt.Frame;
 import java.awt.event.*;
 import javax.swing.*;
-//NOTE WANT TO ADD Milliseconds to Timer too!!!
-public class StopWatch implements ActionListener{
+//want to now at a timer tab as well!
+public class StopWatch extends JFrame implements ActionListener{
 	
 	JFrame frame = new JFrame();
 	JButton startButton = new JButton("Start");
 	JButton stopButton = new JButton("Stop");
 	JButton resetButton = new JButton("Reset");
 	JLabel timeLabel = new JLabel();
+	
+	//JTabbedPane tabbedPane = new JTabbedPane(); 
+	
 	
 	int elapsedTime = 0; //this is milliseconds
 	int seconds = 0;
@@ -54,12 +58,14 @@ public class StopWatch implements ActionListener{
 		resetButton.setFocusable(false);
 		resetButton.addActionListener(this);
 
+		frame.setTitle("Stopwatch");
 		frame.add(resetButton);
 		frame.add(startButton);
 		frame.add(timeLabel);
 		//creates frame on screen
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(420,420);
+		frame.setResizable(false);
 		frame.setLayout(null);
 		frame.setVisible(true);//need to put this at end of constructor
 	}
